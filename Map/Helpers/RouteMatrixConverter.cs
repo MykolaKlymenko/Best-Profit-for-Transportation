@@ -7,16 +7,16 @@ namespace Map.Helpers
 {
     public static class RouteMatrixConverter
     {
-        public static T[,] ConvertToMatrix<T>(List<List<T>> routes)
+        public static T[][] ConvertToMatrix<T>(List<List<T>> routes)
         {
-            var colsCount = routes.FirstOrDefault().Count();
             var rowsCount = routes.Count();
-            var matrix = new T[rowsCount, colsCount];
+            var matrix = new T[rowsCount][];
             for (int i = 0; i < rowsCount; i++)
             {
-                for (int j = 0; j < colsCount; j++)
+                matrix[i] = new T[routes[i].Count];
+                for (int j = 0; j < routes[i].Count; j++)
                 {
-                    matrix[i, j] = routes[i][j];
+                    matrix[i][j] = routes[i][j];
                 }
             }
 

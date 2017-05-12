@@ -23,7 +23,7 @@ namespace Map.Controllers
         }
 
         [HttpPost]
-        public int[,] CalculateBestRoute(double[][] map)
+        public int[][] CalculateBestRoute(double[][] map)
         {
             MapModel.SetNewPoint(map);
           
